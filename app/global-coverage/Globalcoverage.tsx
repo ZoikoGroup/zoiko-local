@@ -2,13 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 
-/* ────────────────────────────────────────────────────────────────────────────
-   Zoiko Local — Global Coverage page
-   coral #d9603f · dark green #163a2e · deeper green #0f2a21 · cream #f3efe7
-   Icon spots are dashed <ImageSlot /> placeholders — drop your images in later.
-──────────────────────────────────────────────────────────────────────────── */
 
-// ─── HELPERS ─────────────────────────────────────────────────────────────────
 function ImageSlot({ className = "h-10 w-10 rounded-xl", label = "icon" }: { className?: string; label?: string }) {
   return (
     <span
