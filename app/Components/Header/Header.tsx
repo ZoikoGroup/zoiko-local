@@ -189,10 +189,10 @@ export default function Header() {
           onMouseLeave={() => setActiveMegaMenu(null)}
         >
           {activeMegaMenu === "platform" && (
-            <MegaMenu title="Platform" items={platformItems} buttonText="Start Free" />
+            <MegaMenu title="Platform" items={platformItems} buttonText="Start Free" buttonlink="/start-free" />
           )}
           {activeMegaMenu === "solutions" && (
-            <MegaMenu title="Solutions" items={solutionItems} buttonText="Talk to Sales" />
+            <MegaMenu title="Solutions" items={solutionItems} buttonText="Talk to Sales" buttonlink="/contact-sales" />
           )}
         </div>
       )}
@@ -200,13 +200,15 @@ export default function Header() {
   );
 }
 
-function MegaMenu({ title, items, buttonText }: { title: string; items: any[]; buttonText: string }) {
+function MegaMenu({ title, items, buttonText, buttonlink }: { title: string; items: any[]; buttonText: string; buttonlink: string }) {
   return (
     <div className="w-[min(1000px,90vw)] overflow-hidden rounded-[28px] border border-[#E5DDD4] bg-white shadow-[0_25px_80px_rgba(0,0,0,0.08)] dark:border-slate-700 dark:bg-slate-900">
       <div className="p-8">
         <div className="mb-10 flex items-center justify-between">
           <span className="text-xs font-bold uppercase tracking-[4px] text-slate-500">{title}</span>
-          <button className="font-medium text-[#F26B45]">View {title} →</button>
+          <Link href={`/${title.toLowerCase()}`}>
+            <button className="font-medium text-[#F26B45]">View {title} →</button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-4 gap-x-7 gap-y-7">
@@ -232,7 +234,9 @@ function MegaMenu({ title, items, buttonText }: { title: string; items: any[]; b
 
       <div className="flex items-center justify-between border-t border-[#E5DDD4] bg-[#F8F5F1] px-10 py-5 dark:border-slate-700 dark:bg-slate-800">
         <p className="text-sm text-slate-600 dark:text-slate-300">Use one product or build the full stack.</p>
-        <button className="rounded-full bg-[#F26B45] px-8 py-3 font-semibold text-white">{buttonText}</button>
+        <Link href={buttonlink}>
+          <button className="rounded-full bg-[#F26B45] px-8 py-3 font-semibold text-white">{buttonText}</button>
+        </Link>
       </div>
     </div>
   );
