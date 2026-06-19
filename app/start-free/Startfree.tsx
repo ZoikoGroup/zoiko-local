@@ -1,16 +1,54 @@
 import React from 'react';
+import Faq from '../Components/Faq';
 import Image from 'next/image';
 import {
     FiMapPin,
-    FiExternalLink,
+    FiExternalLink, FiPhoneCall, FiVideo,
     FiMic, FiSettings, FiClock, FiSend,
     FiUsers, FiPlus, FiInfo,
     FiArrowRight,
-    FiCheck, FiCreditCard,
-    FiDollarSign,
+    FiCheck, FiCreditCard, FiUser,
+    FiDollarSign, FiGlobe, FiHome,
     FiShield, FiMail, FiLock,
 } from "react-icons/fi";
 
+const faqItems = [
+  {
+    question: "Is it really free to start?",
+    answer:
+      "Yes. You can create a workspace, check number availability, and test calling and video at no cost. You only pay when you activate a number or select a paid plan.",
+  },
+  {
+    question: "When do I pay?",
+    answer:
+      "You pay when you choose to activate a number or upgrade to a paid plan. Your free workspace and diagnostics have no time limit — there's no trial countdown.",
+  },
+  {
+    question: "Can I cancel?",
+    answer:
+      "Yes. Month-to-month plans can be cancelled any time from your workspace settings. Annual plans can be cancelled before the next renewal. Free workspaces have no obligation.",
+  },
+  {
+    question: "Can I port a number?",
+    answer:
+      "Yes, in supported markets. Number porting is subject to eligibility, carrier confirmation and any applicable fees. You can start the porting process during or after signup.",
+  },
+  {
+    question: "Can I switch from Skype?",
+    answer:
+      "Yes. Zoiko Local replaces the most common Skype-style use cases — local numbers, calling, voicemail, and video. A dedicated migration path is available for Skype users, including number porting where eligible.",
+  },
+  {
+    question: "Can I talk to sales?",
+    answer:
+      "Yes. If you need multi-country numbers, call center setup, custom AI scripts, SSO, or procurement support, our commercial team is available. Use the Contact Sales button below to get started.",
+  },
+  {
+    question: "Can I use AI Receptionist later?",
+    answer:
+      "Yes. AI Receptionist is optional and can be added at any time from your workspace. You set the scripts, hours, and routing rules — and you can turn it off whenever you like.",
+  },
+];
 
 export default function Startfree() {
     return (
@@ -81,8 +119,8 @@ export default function Startfree() {
                                             transition-all
 
                                             ${index === 0
-                                                ? "border-[#B7D3CB] bg-[#EEF6F3]"
-                                                : "border-transparent bg-[#F6F3EE]"
+                                                ? "border-[#B7D3CB] bg-[#EEF6F3] dark:bg-slate-800"
+                                                : "border-transparent bg-[#F6F3EE] dark:bg-slate-800"
                                             }
                                         `}
                                     >
@@ -285,7 +323,7 @@ export default function Startfree() {
 
               hover:-translate-y-1
               hover:border-[#F26B45]
-              hover:bg-[#F8F3EB]
+              hover:bg-[#F8F3EB] dark:hover:bg-slate-800
               hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]
 
               dark:border-slate-700
@@ -1324,10 +1362,10 @@ export default function Startfree() {
             <section className="bg-[#FAF8F4] px-4 py-8 md:py-14 dark:bg-slate-900">
                 <div className="mx-auto grid max-w-6xl items-center lg:grid-cols-1">
                     <div className="flex flex-col mx-auto max-w-4xl text-center">
-                         <p className="mb-4 text-[10px] font-semibold uppercase tracking-[4px] text-[#F26B45]">
+                        <p className="mb-4 text-[10px] font-semibold uppercase tracking-[4px] text-[#F26B45]">
                             Optional • AI Receptionist
                         </p>
-                    
+
                         <h2 className="text-[30px] font-bold max-w-2xl leading-tight text-[#143A36] dark:text-white md:text-[40px]">
                             Want Zoiko Local to answer{" "}
                             <span className="italic text-center text-[#F26B45]">
@@ -1341,64 +1379,64 @@ export default function Startfree() {
                         </p>
                     </div>
                     <div className="mt-14 grid gap-10 grid-cols-1 lg:grid-cols-2">
-                    {/* Left */}
-                    <div>
-                       
+                        {/* Left */}
+                        <div>
 
-                        <div className="mt-10 space-y-6">
 
-                            {[
-                                {
-                                    icon: FiMic,
-                                    title: "Set your greeting",
-                                    desc: "Welcome callers in your business voice.",
-                                },
-                                {
-                                    icon: FiClock,
-                                    title: "Choose hours",
-                                    desc: "Decide when AI answers overflow and after-hours.",
-                                },
-                                {
-                                    icon: FiSend,
-                                    title: "Route & capture callback",
-                                    desc: "Send enquiries to the right person.",
-                                },
-                                {
-                                    icon: FiUsers,
-                                    title: "Human handoff",
-                                    desc: "AI answers overflow while your team takes over when needed.",
-                                },
-                            ].map((item) => {
-                                const Icon = item.icon;
+                            <div className="mt-10 space-y-6">
 
-                                return (
-                                    <div
-                                        key={item.title}
-                                        className="flex gap-4 border-b border-[#E8DED2] pb-5 dark:border-slate-700"
-                                    >
-                                        <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-lg bg-[#FFF4EF]">
-                                            <Icon size={18} className="text-[#F26B45]" />
+                                {[
+                                    {
+                                        icon: FiMic,
+                                        title: "Set your greeting",
+                                        desc: "Welcome callers in your business voice.",
+                                    },
+                                    {
+                                        icon: FiClock,
+                                        title: "Choose hours",
+                                        desc: "Decide when AI answers overflow and after-hours.",
+                                    },
+                                    {
+                                        icon: FiSend,
+                                        title: "Route & capture callback",
+                                        desc: "Send enquiries to the right person.",
+                                    },
+                                    {
+                                        icon: FiUsers,
+                                        title: "Human handoff",
+                                        desc: "AI answers overflow while your team takes over when needed.",
+                                    },
+                                ].map((item) => {
+                                    const Icon = item.icon;
+
+                                    return (
+                                        <div
+                                            key={item.title}
+                                            className="flex gap-4 border-b border-[#E8DED2] pb-5 dark:border-slate-700"
+                                        >
+                                            <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-lg bg-[#FFF4EF]">
+                                                <Icon size={18} className="text-[#F26B45]" />
+                                            </div>
+
+                                            <div>
+                                                <h4 className="font-semibold text-[#143A36] dark:text-white">
+                                                    {item.title}
+                                                </h4>
+
+                                                <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                                    {item.desc}
+                                                </p>
+                                            </div>
                                         </div>
-
-                                        <div>
-                                            <h4 className="font-semibold text-[#143A36] dark:text-white">
-                                                {item.title}
-                                            </h4>
-
-                                            <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
-                                                {item.desc}
-                                            </p>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Right Card */}
+                        {/* Right Card */}
 
-                    <div
-                        className="
+                        <div
+                            className="
         rounded-[24px]
         bg-gradient-to-br
         from-[#0D5C54]
@@ -1408,49 +1446,430 @@ export default function Startfree() {
         text-white
         shadow-[0_25px_70px_rgba(0,0,0,0.18)]
       "
-                    >
-                        <h3 className="text-2xl font-semibold">
-                            You stay in control
-                        </h3>
+                        >
+                            <h3 className="text-2xl font-semibold">
+                                You stay in control
+                            </h3>
 
-                        <p className="mt-5 text-sm leading-7 text-white/80">
-                            AI Receptionist supports automated call handling and routing.
-                            It never replaces professional judgement, medical, financial or
-                            emergency advice.
-                        </p>
+                            <p className="mt-5 text-sm leading-7 text-white/80">
+                                AI Receptionist supports automated call handling and routing.
+                                It never replaces professional judgement, medical, financial or
+                                emergency advice.
+                            </p>
 
-                        <div className="mt-8 space-y-4">
+                            <div className="mt-8 space-y-4">
 
-                            {[
-                                "Custom greeting disclosure toggle",
-                                "Editable scripts & escalation levels",
-                                "Reviewable summaries",
-                            ].map((item) => (
-                                <div key={item} className="flex items-center gap-3">
-                                    <FiCheck className="text-[#79E2A5]" />
-                                    <span>{item}</span>
-                                </div>
-                            ))}
+                                {[
+                                    "Custom greeting disclosure toggle",
+                                    "Editable scripts & escalation levels",
+                                    "Reviewable summaries",
+                                ].map((item) => (
+                                    <div key={item} className="flex items-center gap-3">
+                                        <FiCheck className="text-[#79E2A5]" />
+                                        <span>{item}</span>
+                                    </div>
+                                ))}
+
+                            </div>
+
+                            <div className="mt-10 flex flex-col gap-4">
+
+                                <button className="rounded-full bg-[#F26B45] px-6 py-3 font-semibold text-white transition hover:bg-[#E45A33]">
+                                    Configure AI Receptionist
+                                </button>
+
+                                <button className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10">
+                                    Skip and add later
+                                </button>
+
+                            </div>
 
                         </div>
+                    </div>
+                </div>
+            </section>
+            {/* ===================== Test Call Section ===================== */}
+            <section className="py-8 md:py-12 px-5 bg-[#F7F7F7] dark:bg-[#0F172A] transition-colors duration-300">
+                <div className="max-w-6xl mx-auto">
 
-                        <div className="mt-10 flex flex-col gap-4">
+                    {/* Heading */}
+                    <div className="text-center max-w-3xl mx-auto">
 
-                            <button className="rounded-full bg-[#F26B45] px-6 py-3 font-semibold text-white transition hover:bg-[#E45A33]">
-                                Configure AI Receptionist
+                        <p className="uppercase tracking-[0.25em] text-[11px] font-semibold text-[#F26C4F] mb-4 flex items-center justify-center gap-2">
+                            <span className="w-8 h-px bg-[#F26C4F]" />
+                            First Functional Moment
+                        </p>
+
+                        <h2 className="text-3xl md:text-5xl font-bold leading-tight text-[#16312F] dark:text-white">
+                            Try calling and video{" "}
+                            <span className="italic text-[#E66845]">
+                                right away.
+                            </span>
+                        </h2>
+
+                        <p className="mt-5 text-[15px] md:text-base text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
+                            A quick first win with friendly diagnostics for mic, camera,
+                            network and audio quality.
+                        </p>
+                    </div>
+
+                    {/* Cards */}
+                    <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-7 max-w-4xl mx-auto">
+
+                        {/* Card 1 */}
+                        <div className="rounded-2xl border border-[#E7DDCF] dark:border-gray-700 bg-[#F7EEDF] dark:bg-[#1F2937] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                            <div className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-[#0B6E77]">
+                                <FiPhoneCall size={24} />
+                            </div>
+
+                            <h3 className="mt-6 text-lg font-semibold text-[#16312F] dark:text-white">
+                                Place a test call
+                            </h3>
+
+                            <p className="mt-2 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                                Check caller ID and audio quality end to end.
+                            </p>
+
+                            <button
+                                className="mt-7 rounded-full bg-[#F26C4F] hover:bg-[#E45A3C] text-white text-sm font-medium px-5 py-2.5 transition"
+                            >
+                                Make Test Call
                             </button>
+                        </div>
 
-                            <button className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10">
-                                Skip and add later
+                        {/* Card 2 */}
+                        <div className="rounded-2xl border border-[#E7DDCF] dark:border-gray-700 bg-[#F7EEDF] dark:bg-[#1F2937] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                            <div className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-[#0B6E77]">
+                                <FiVideo size={24} />
+                            </div>
+
+                            <h3 className="mt-6 text-lg font-semibold text-[#16312F] dark:text-white">
+                                Start a test video room
+                            </h3>
+
+                            <p className="mt-2 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                                Invite a teammate and check camera and network.
+                            </p>
+
+                            <button
+                                className="mt-7 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 text-[#16312F] dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700 text-sm font-medium px-5 py-2.5 transition"
+                            >
+                                Start Test Video
                             </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            {/* ================= Migration Section ================= */}
+            <section className="relative py-8 md:py-12 px-5 bg-[#F7F5F2] dark:bg-[#0F172A] overflow-hidden">
+                <div className="max-w-6xl mx-auto">
+
+                    {/* Heading */}
+                    <div className="max-w-3xl mx-auto text-center">
+
+                        <p className="uppercase tracking-[0.28em] text-[11px] font-semibold text-[#E76845] flex justify-center items-center gap-2 mb-4">
+                            <span className="w-8 h-px bg-[#E76845]" />
+                            Switching From Skype
+                        </p>
+
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-[#123533] dark:text-white">
+                            Move from Skype{" "}
+                            <span className="italic text-[#D95B35]">
+                                without losing customers.
+                            </span>
+                        </h2>
+
+                        <p className="mt-5 text-gray-500 dark:text-gray-400 text-[15px] leading-relaxed max-w-2xl mx-auto">
+                            Zoiko Local replaces common Skype-style use cases; exact migration
+                            depends on number type, region and account status.
+                        </p>
+                    </div>
+
+                    {/* Card */}
+                    <div className="relative mt-14 max-w-4xl mx-auto overflow-hidden rounded-3xl">
+
+                        {/* Background */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#034B47] via-[#013E3B] to-[#002F2D]" />
+
+                        {/* Glow */}
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-[#2F8C73]/30 blur-[100px]" />
+
+                        {/* Content */}
+                        <div className="relative z-10 p-8 md:p-12">
+
+                            <h3 className="text-2xl font-semibold text-white">
+                                Your migration path
+                            </h3>
+
+                            <p className="text-white/70 mt-2">
+                                Keep your business reachable while you switch.
+                            </p>
+
+                            {/* Checklist */}
+                            <div className="mt-8 space-y-4">
+
+                                {[
+                                    "Select a local number (new or ported)",
+                                    "Forward existing contacts during transition",
+                                    "Set voicemail / AI greeting",
+                                    "Invite your team",
+                                ].map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex items-center gap-3 text-white/90"
+                                    >
+                                        <FiCheck className="text-[#8CF3B7] text-lg flex-shrink-0" />
+
+                                        <span className="text-sm md:text-base">
+                                            {item}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Buttons */}
+                            <div className="flex flex-col sm:flex-row gap-4 mt-10">
+
+                                <button className="px-7 py-3 rounded-full bg-[#F26C4F] hover:bg-[#E45A3D] text-white font-medium transition duration-300 shadow-lg hover:shadow-orange-500/30">
+                                    Start Skype Migration
+                                </button>
+
+                                <button className="px-7 py-3 rounded-full bg-white hover:bg-gray-100 text-[#0D4D49] font-medium transition duration-300">
+                                    Read Migration Guide
+                                </button>
+
+                            </div>
 
                         </div>
 
                     </div>
+
                 </div>
-                </div>
+
             </section>
-            
+            {/* ================= Trust & Compliance Section ================= */}
+            <section className="py-8 lg:py-14 px-5 bg-[#F7F5F2] dark:bg-[#0F172A] transition-colors duration-300">
+                <div className="max-w-6xl mx-auto">
+
+                    {/* Heading */}
+                    <div className="max-w-3xl mx-auto text-center">
+
+                        <p className="flex items-center justify-center gap-2 uppercase tracking-[0.28em] text-[11px] font-semibold text-[#E66A46] mb-4">
+                            <span className="w-8 h-px bg-[#E66A46]" />
+                            Trust, Security & Compliance
+                        </p>
+
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-[#123533] dark:text-white">
+                            Serious about your{" "}
+                            <span className="italic text-[#D75C38]">
+                                business communications.
+                            </span>
+                        </h2>
+
+                        <p className="mt-5 text-[15px] md:text-base text-gray-500 dark:text-gray-400">
+                            Plain-English protection so you can start with confidence.
+                        </p>
+
+                    </div>
+
+                    {/* Cards */}
+                    <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        {[
+                            {
+                                icon: <FiLock />,
+                                title: "Data protection",
+                                text: "Your information is used to verify eligibility, provision service and protect your account.",
+                            },
+                            {
+                                icon: <FiShield />,
+                                title: "Account security",
+                                text: "Passkeys, role-based access and device controls.",
+                            },
+                            {
+                                icon: <FiGlobe />,
+                                title: "Telecom availability",
+                                text: "Number, calling and feature availability vary by country and number type.",
+                            },
+                            {
+                                icon: <FiHome />,
+                                title: "Emergency services",
+                                text: "Capabilities and limitations vary by country, number type and configuration.",
+                            },
+                            {
+                                icon: <FiMic />,
+                                title: "AI disclosure",
+                                text: "Recording, transcription and AI processing are subject to consent, configuration and law.",
+                            },
+                            {
+                                icon: <FiUser />,
+                                title: "Human control",
+                                text: "You control scripts, hours, routing and escalation.",
+                            },
+                        ].map((item, index) => (
+                            <div
+                                key={index}
+                                className="group rounded-2xl border border-[#DED3C4] dark:border-slate-700 bg-[#F5EBDD] dark:bg-[#1E293B] p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                            >
+
+                                {/* Icon */}
+                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#F3F0EA] dark:bg-slate-800 text-[#0D6662] text-xl group-hover:scale-110 transition-transform duration-300">
+                                    {item.icon}
+                                </div>
+
+                                {/* Title */}
+                                <h3 className="mt-6 text-lg font-semibold text-[#123533] dark:text-white">
+                                    {item.title}
+                                </h3>
+
+                                {/* Description */}
+                                <p className="mt-3 text-sm leading-6 text-gray-500 dark:text-gray-400">
+                                    {item.text}
+                                </p>
+
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Button */}
+                    <div className="mt-14 flex justify-center">
+
+                        <button className="rounded-full border border-[#D7D7D7] dark:border-slate-600 bg-white dark:bg-slate-800 px-7 py-3 text-sm font-medium text-[#123533] dark:text-white transition-all duration-300 hover:bg-[#123533] hover:text-white dark:hover:bg-[#0D6662]">
+                            View Trust Notes
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+            {/* ================= FAQ ================= */}
+            <Faq
+                            heading="Start Free FAQ"
+                            subHeading="Answers before you sign up."
+                            items={faqItems}
+                        />
+            {/* ===================== Final CTA Section ===================== */}
+            <section className="bg-[#F7F5F2] dark:bg-[#0F172A] transition-colors duration-300">
+
+                {/* Top CTA */}
+                <div className="py-8 md:py-14 px-5">
+
+                    <div className="max-w-3xl mx-auto text-center">
+
+                        <p className="flex items-center justify-center gap-2 uppercase tracking-[0.28em] text-[11px] font-semibold text-[#E66845] mb-4">
+                            <span className="w-8 h-px bg-[#E66845]" />
+                            Need A Hand?
+                        </p>
+
+                        <h2 className="text-3xl md:text-5xl font-bold leading-tight text-[#123533] dark:text-white">
+                            Complex setup?{" "}
+                            <span className="italic text-[#D95D37]">
+                                Talk to a specialist.
+                            </span>
+                        </h2>
+
+                        <p className="mt-5 text-[15px] md:text-base text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                            Concierge setup and sales support for multi-country,
+                            regulated or high-volume needs — without weakening
+                            the self-serve route.
+                        </p>
+
+                        <button
+                            className="mt-8 inline-flex items-center justify-center rounded-full
+        bg-[#F26C4F] px-7 py-3 text-sm font-semibold text-white
+        shadow-lg shadow-orange-500/20 transition-all duration-300
+        hover:-translate-y-0.5 hover:bg-[#E45A3D]"
+                        >
+                            Talk to Sales
+                        </button>
+
+                    </div>
+
+                </div>
+
+                {/* Bottom CTA Card */}
+                <div className="bg-[#EFEAE3] dark:bg-[#111827] py-8 md:py-14 px-5">
+
+                    <div className="max-w-6xl mx-auto">
+
+                        <div className="relative overflow-hidden rounded-3xl">
+
+                            {/* Background */}
+                            <div
+                                className="absolute inset-0"
+                                style={{
+                                    background: `
+            radial-gradient(circle at 85% 50%, rgba(55,160,120,.35), transparent 38%),
+            linear-gradient(90deg,#04504C 0%,#023D39 55%,#012E2D 100%)
+          `,
+                                }}
+                            />
+
+                            {/* Content */}
+                            <div className="relative z-10 flex flex-col items-center text-center px-8 py-14 md:px-16 md:py-20">
+
+                                <p className="uppercase tracking-[0.28em] text-[11px] font-semibold text-[#F26C4F] flex items-center gap-2">
+                                    <span className="w-8 h-px bg-[#F26C4F]" />
+                                    Open Your Front Door
+                                </p>
+
+                                <h2 className="mt-6 text-3xl md:text-5xl font-bold leading-tight text-white max-w-3xl">
+                                    Open your business
+                                    <br />
+                                    phone workspace in
+                                    <br />
+                                    minutes.
+                                </h2>
+
+                                <p className="mt-6 max-w-2xl text-sm md:text-base leading-relaxed text-white/75">
+                                    Start with a number, calling, video or AI Receptionist —
+                                    then grow as your business needs more. Availability,
+                                    features and usage vary by country, plan and
+                                    configuration.
+                                </p>
+
+                                {/* Buttons */}
+                                <div className="mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
+
+                                    <button
+                                        className="rounded-full bg-[#F26C4F] hover:bg-[#E45A3D]
+              text-white font-medium px-7 py-3 transition-all duration-300
+              shadow-lg shadow-orange-500/20"
+                                    >
+                                        Create My Free Workspace →
+                                    </button>
+
+                                    <button
+                                        className="rounded-full bg-white hover:bg-gray-100
+              text-[#0F4B47] font-medium px-7 py-3 transition-all duration-300"
+                                    >
+                                        Talk to Sales
+                                    </button>
+
+                                    <button
+                                        className="rounded-full border border-white/30
+              hover:border-white hover:bg-white/10
+              text-white font-medium px-7 py-3 transition-all duration-300"
+                                    >
+                                        Check Number Availability
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
         </>
     )
 }
