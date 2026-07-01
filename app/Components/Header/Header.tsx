@@ -72,7 +72,7 @@ export default function Header() {
 
             {[
               { label: "Global Coverage", href: "/global-coverage" },
-              { label: "Plans and Pricing", href: "/pricing" },
+              { label: "Plans and Pricing", href: "/plans-and-pricing" },
               { label: "Resources", href: "/resources" },
             ].map((item) => (
               <li key={item.label}>
@@ -86,10 +86,10 @@ export default function Header() {
 
         {/* Desktop Actions */}
         <div className="hidden items-center gap-4 lg:flex">
-          <Link href="/signin" className="text-base font-medium text-muted-foreground hover:text-foreground">
+          <Link href="/login" className="text-base font-medium text-muted-foreground hover:text-foreground">
             Sign In
           </Link>
-          <Link href="/signup" className="rounded-full bg-[#F26B45] px-6 py-3 text-base font-semibold text-white transition hover:opacity-90">
+          <Link href="/start-free" className="rounded-full bg-[#F26B45] px-6 py-3 text-base font-semibold text-white transition hover:opacity-90">
             Start Free
           </Link>
         </div>
@@ -166,7 +166,7 @@ export default function Header() {
             {/* Regular links */}
             {[
               { label: "Global Coverage", href: "/global-coverage" },
-              { label: "Plans and Pricing", href: "/pricing" },
+              { label: "Plans and Pricing", href: "/plans-and-pricing" },
               { label: "Resources", href: "/resources" },
             ].map((item) => (
               <Link key={item.label} href={item.href} onClick={() => setOpen(false)} className="block py-3 text-base font-medium">
