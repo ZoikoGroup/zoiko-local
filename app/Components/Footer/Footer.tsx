@@ -2,75 +2,86 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-const footerSections = [
+type FooterLink = string | { title: string; href: string };
+
+type FooterSection = {
+    title: string;
+    links: FooterLink[];
+};
+
+const footerSections: FooterSection[] = [
     {
         title: "Platform",
         links: [
-            "Search Numbers",
-            "Pricing",
-            "Business",
-            "Workspace",
-            "Mobile Apps",
-            "Status Page",
-            "Contact Support",
-            "Contact Sales",
+            { title: "Search Numbers", href: "/get-a-local-number" },
+            { title: "Pricing", href: "/plans-and-pricing" },
+            { title: "Business Workspace", href: "/business" },
+            { title: "Mobile Apps", href: "#" },
+            { title: "Status Page", href: "#" },
+            { title: "Contact Support", href: "/contact-support" },
+            { title: "Contact Sales", href: "#" },
         ],
     },
     {
         title: "Global Coverage",
         links: [
-            "United States",
-            "United Kingdom",
-            "Canada",
-            "European Numbers",
-            "Nigeria",
-            "South Africa",
-            "Caribbean Numbers",
-            "African Numbers",
-            "All Countries",
+            { title: "United States", href: "#" },
+            { title: "United Kingdom", href: "#" },
+            { title: "Canada", href: "#" },
+            { title: "European Numbers", href: "#" },
+            { title: "Nigeria", href: "#" },
+            { title: "South Africa", href: "#" },
+            { title: "Caribbean Numbers", href: "#" },
+            { title: "African Numbers", href: "#" },
+            { title: "All Countries", href: "#" },
         ],
     },
     {
         title: "Use Cases",
         links: [
-            "Business Numbers",
-            "Disposable Numbers",
-            "Remote Teams",
-            "International Expansion",
-            "Customer Support",
-            "Founder-Led Business",
+            { title: "Business Numbers", href: "/business" },
+            { title: "Diaspora Founders", href: "/diaspora-founders" },
+            { title: "Remote Teams", href: "/remote-teams" },
+            { title: "International Expansion", href: "#" },
+            { title: "Customer Support", href: "/customer-support" },
+            { title: "Founder-Led Business", href: "/founder-led-business" },
         ],
     },
     {
         title: "Compare",
         links: [
-            "Skype Alternative",
-            "Google Voice Alternative",
-            "OpenPhone Alternative",
-            "Teams Phone Alternative",
-            "Virtual Phone Number",
-            "Local Business Number",
+            { title: "Skype Alternative", href: "/switch-from-skype" },
+            { title: "Google Voice Alternative", href: "/google-voice-alternative" },
+            { title: "OpenPhone Alternative", href: "/openphone-alternative" },
+            { title: "Teams Phone Alternative", href: "/teams-phone-alternative" },
+            { title: "Virtual Phone Number", href: "/virtual-phone-numbers" },
+            { title: "Local Business Number", href: "/local-business-numbers" },
         ],
     },
     {
         title: "Legal",
         links: [
-            "Privacy Policy",
-            "Terms of Service",
-            "Acceptable Use Policy",
-            "Data Processing Agreement",
-            "AI Terms",
-            "Accessibility",
+            { title: "Privacy Policy",href:"#" },
+            { title: "Terms of Service", href: "#" },
+            { title: "Acceptable Use Policy", href: "#" },
+            { title: "Data Processing Agreement", href: "#" },
+            { title: "AI Terms", href: "#" },
+            { title: "Recording & Consent", href: "#" },
+            { title: "Emergency Calling", href: "/emergency-calling" },
+            { title: "Number Porting", href: "/number-porting" },
+            { title: "Low Enforcement Requests", href: "#" },
+            { title: "Accessibility", href: "#" },
+            
         ],
     },
     {
         title: "Company",
         links: [
-            "About",
-            "Communications",
-            "Careers",
-            "Press",
-            "Contact",
+            { title: "About", href: "/about-us" },
+            { title: "Communications", href: "/communications" },
+            { title: "Careers", href: "/careers" },
+            { title: "Press", href: "/press" },
+            { title: "Contact", href: "/contact-support" },
         ],
     },
 ];
@@ -128,12 +139,12 @@ export default function Footer() {
 
                                 <ul className="space-y-3">
                                     {section.links.map((link) => (
-                                        <li key={link}>
+                                        <li key={typeof link === "string" ? link : link.title}>
                                             <Link
-                                                href="#"
+                                                href={typeof link === "string" ? "#" : link.href}
                                                 className="text-sm text-slate-400 transition hover:text-white"
                                             >
-                                                {link}
+                                                {typeof link === "string" ? link : link.title}
                                             </Link>
                                         </li>
                                     ))}
