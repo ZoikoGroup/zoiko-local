@@ -31,7 +31,7 @@ function SectionHead({ eyebrow, title, sub, onDark = false }: { eyebrow: string;
   return (
     <div className="mx-auto max-w-2xl text-center">
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className={`mt-3 text-3xl font-extrabold leading-snug ${onDark ? "text-white" : "dark:text-white"}`}>{title}</h2>
+      <h2 className={`mt-3 text-3xl font-extrabold leading-snug ${onDark ? "" : "dark:text-white"}`}>{title}</h2>
       {sub && (
         <p className={`mx-auto mt-3 max-w-xl text-sm leading-relaxed ${onDark ? "text-white/60" : "text-gray-600 dark:text-gray-400"}`}>
           {sub}
@@ -109,7 +109,7 @@ function Localbusinessnumbers() {
   return (
     <main className="bg-[#f3efe7] font-sans text-[#1c2b26] dark:bg-gray-900 dark:text-gray-100">
       {/* ─── HERO ─── */}
-      <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <section className="relative overflow-hidden px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         {/* soft coral glow, top-right */}
         <div
           aria-hidden
@@ -156,14 +156,14 @@ function Localbusinessnumbers() {
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
-      <section className="bg-[#0b0b0b] px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-[#F7F5F2] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <SectionHead onDark eyebrow="How it works" title="Simple to get, powerful to use." />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {howItWorks.map((h) => (
               <div key={h.title} className="rounded-2xl bg-white p-6 ring-1 ring-white/10 dark:bg-gray-800">
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#e8f1ec] dark:bg-[#34d39e]/15">
-                  <Img src={h.icon} alt="" className="h-5 w-5" />
+                  <Img src={h.icon} alt="" className="h-8 w-8" />
                 </span>
                 <h3 className="mt-5 text-base font-bold text-[#1c2b26] dark:text-white">{h.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">{h.desc}</p>
@@ -206,7 +206,7 @@ function Localbusinessnumbers() {
       </section>
 
       {/* ─── QUESTIONS / FAQ ─── */}
-      <section className="bg-[#0b0b0b] px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-[#F7F5F2] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <SectionHead onDark eyebrow="Questions" title="Local business numbers, answered." />
           <div className="mt-12 divide-y divide-white/10">
@@ -219,12 +219,12 @@ function Localbusinessnumbers() {
                     className="flex w-full items-center justify-between gap-4 py-5 text-left"
                     aria-expanded={isOpen}
                   >
-                    <span className="text-sm font-semibold text-white/90">{f.q}</span>
-                    <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-white/20 text-lg leading-none text-white/70">
+                    <span className="text-sm font-semibold dark:text-white/90">{f.q}</span>
+                    <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-white/20 text-lg leading-none dark:text-white/70">
                       {isOpen ? "−" : "+"}
                     </span>
                   </button>
-                  {isOpen && <p className="pb-5 text-sm leading-relaxed text-white/60">{f.a}</p>}
+                  {isOpen && <p className="pb-5 text-sm leading-relaxed dark:text-white/60">{f.a}</p>}
                 </div>
               );
             })}
@@ -233,7 +233,7 @@ function Localbusinessnumbers() {
       </section>
 
       {/* ─── FINAL CTA ─── */}
-      <section className="bg-[#0b0b0b] px-4 pb-24 pt-4 sm:px-6 lg:px-8">
+      <section className="bg-[#F7F5F2] px-4 pb-24 pt-4 sm:px-6 lg:px-8">
         <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-[#0f2a21] p-10 text-center text-white sm:p-16">
           <div aria-hidden className="pointer-events-none absolute -right-16 top-0 h-72 w-72 rounded-full bg-[#d9603f]/15 blur-3xl" />
           <div className="relative">
